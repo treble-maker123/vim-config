@@ -6,6 +6,7 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 
 1. Copy the **.vimrc** into your home directory (i.e. ~/) or symlink with `ln -s /path/to/vim-config/.vimrc ~/.vimrc`,
 1. Run `vim +PluginInstall +qall` in shell to install all of the plugins with Vundle (see installation notes below),
+1. Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
 1. (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
 
 ### Vundle Installation
@@ -28,6 +29,10 @@ When the autcomplete shows up, use **TAB** key to cycle through suggestions or *
 
 - :tabnew FILE_NAME - open FILE_NAME in new tab
 - :tabmove N - move tab to Nth position, if argument is not provided, moves tab to the last position
+
+### Searching
+
+- Examples searching for files ending in ".erb" for the term "card-panel" - `grep -R --include "*.erb" "card-panel" .`
 
 ### NERDTree
 
