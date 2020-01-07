@@ -27,12 +27,14 @@ When the autcomplete shows up, use **TAB** key to cycle through suggestions or *
 
 ### Tabs
 
-- :tabnew FILE_NAME - open FILE_NAME in new tab
-- :tabmove N - move tab to Nth position, if argument is not provided, moves tab to the last position
+- `:tabnew FILE_NAME` - open FILE_NAME in new tab
+- `:tabmove N` - move tab to Nth position, if argument is not provided, moves tab to the last position
 
 ### Searching
 
-- Examples searching for files ending in ".erb" for the term "card-panel" - `grep -R --include "*.erb" "card-panel" .`
+- Enter the command `:/` (forward) or `:?` (backward), type in the search query, then hit <ENTER> to search. Hit <n> to search for the next forward instance, and <N> to search for the next backward instance
+- `:noh` clears the highlighted search terms
+- (Not specific to VIM, but helpful) Examples searching for files ending in ".erb" for the term "card-panel" - `grep -R --include "*.erb" "card-panel" .`
 
 ### NERDTree
 
