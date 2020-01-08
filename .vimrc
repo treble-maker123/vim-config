@@ -30,6 +30,8 @@ au BufWrite * :Autoformat " automatically format on save
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
 Plugin 'Quramy/vim-js-pretty-template' " template synx
+Plugin 'mhartington/vim-typings' " TypeScript typings
+Plugin 'Quramy/tsuquyomi' " autocompletion
 
 " <<< vundle plugins <<<
 
@@ -49,13 +51,13 @@ colorscheme solarized
 " <TAB>
 set expandtab " <TAB> gives spaces
 set tabstop=2 " number of visual spaces to display per <TAB> character
-set softtabstop=2 
+set softtabstop=2
 set shiftwidth=2 " how many spaces to use for an indentation (hitting ENTER)
 :
 " folding
 set foldenable " enable folding
 set foldlevelstart=10 " levels to be folded to start
-set foldnestmax=10 " max number of level of folds 
+set foldnestmax=10 " max number of level of folds
 
 " ui
 set number " show line number
