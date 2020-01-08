@@ -22,6 +22,15 @@ Plugin 'ycm-core/YouCompleteMe'
 " search stuff in files
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" automatic formatting
+Plugin 'Chiel92/vim-autoformat'
+" NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
+au BufWrite * :Autoformat " automatically format on save
+
+" typescript support
+Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
+Plugin 'Quramy/vim-js-pretty-template' " template synx
+
 " <<< vundle plugins <<<
 
 " All of your Plugins must be added before the following line
@@ -42,7 +51,7 @@ set expandtab " <TAB> gives spaces
 set tabstop=2 " number of visual spaces to display per <TAB> character
 set softtabstop=2 
 set shiftwidth=2 " how many spaces to use for an indentation (hitting ENTER)
-
+:
 " folding
 set foldenable " enable folding
 set foldlevelstart=10 " levels to be folded to start
@@ -62,6 +71,10 @@ set hlsearch " highlight matches
 
 " tabs
 set showtabline=2 " always show tabs at the top
+
+" line
+set tw=0 " text width, how many characers before wrapping. 0 means no wrap
+set wrap linebreak nolist " setting soft wrap, so that no newline character is inserted at the end
 
 " miscellaneous
 set encoding=utf-8 " not sure if this is necessary
