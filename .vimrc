@@ -51,9 +51,8 @@ colorscheme solarized
 " <TAB>
 set expandtab " <TAB> gives spaces
 set tabstop=2 " number of visual spaces to display per <TAB> character
-set softtabstop=2
 set shiftwidth=2 " how many spaces to use for an indentation (hitting ENTER)
-:
+
 " folding
 set foldenable " enable folding
 set foldlevelstart=10 " levels to be folded to start
