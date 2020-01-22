@@ -47,6 +47,7 @@ filetype plugin indent on    " required
 syntax enable
 set background=dark
 colorscheme solarized
+hi Normal ctermbg=None " Turns background color off
 
 " <TAB>
 set expandtab " <TAB> gives spaces
