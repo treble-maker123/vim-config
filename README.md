@@ -55,6 +55,13 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 -   `vs filename` - open in new vertical split
 -   `sp filename` - open in new horizontal split
 
+Resizing:
+
+-   `resize +5` to increase the height of the pane
+-   `vertical resize +5` to increase the width of the pane
+
+Alternatively, `ctrl-w +` and `ctrl-w -` to resize the height of the current window, `ctrl+w >` and `ctrl+w <` to resize the width of the current window. To resize all windows, `ctrl-w =`.
+
 ### Searching
 
 -   Enter the command `:/` (forward) or `:?` (backward), type in the search query, then hit <ENTER> to search. Hit <n> to search for the next forward instance, and <N> to search for the next backward instance
