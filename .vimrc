@@ -27,11 +27,18 @@ Plugin 'Chiel92/vim-autoformat'
 " NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
 au BufWrite * :Autoformat " automatically format on save
 
+" status line
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
 Plugin 'Quramy/vim-js-pretty-template' " template synx
 Plugin 'mhartington/vim-typings' " TypeScript typings
 Plugin 'Quramy/tsuquyomi' " autocompletion
+
+" python support
+Plugin 'klen/python-mode' " converts vim into a Python IDE
 
 " <<< vundle plugins <<<
 
@@ -88,8 +95,12 @@ set mouse=a " alows for highlighting lines, placing the cursor, and scrolling wi
 " See https://github.com/preservim/nerdtree/wiki/F.A.Q. for more info
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" open NERTTree with <ctrl + n>
+" open NERDTree with <ctrl + n>
 map <C-n> :NERDTreeToggle<CR>
+
+" Open NERDTree automatically when vim starts up if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
