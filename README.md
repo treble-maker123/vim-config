@@ -9,6 +9,8 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 3.  Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
 4.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
 
+I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
+
 ### Vundle Installation
 
   See their [Gihub](https://github.com/VundleVim/Vundle.vim#quick-start) page for information.
@@ -34,7 +36,8 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 
 ### Copy, Cutting, & Pasting
 
--   To copy, `v` to select characters, `V` to select whole lines, or use the mouse to highlight when mouse mode is enabled,
+-   To select, `v` to select characters, `V` to select whole lines, or use the mouse to highlight when mouse mode is enabled,
+-   To copy, `y` for "yank",
 -   To cut, `d`,
 -   To paste before cursor press `P`. to paste after cursor press `p`.
 

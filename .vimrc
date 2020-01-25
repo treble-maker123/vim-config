@@ -13,8 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " >>> vundle plugins >>>
 
-" for solarizied color theme
+" color schemes
 Plugin 'altercation/vim-colors-solarized'
+
 " file system explorer
 Plugin 'preservim/nerdtree'
 " autocomplete for vim
@@ -30,6 +31,10 @@ au BufWrite * :Autoformat " automatically format on save
 " status line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" git support
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
@@ -53,8 +58,8 @@ filetype plugin indent on    " required
 " color scheme
 syntax enable
 set background=dark
-colorscheme solarized
 hi Normal ctermbg=None " Turns background color off
+colorscheme solarized
 
 " <TAB>
 set expandtab " <TAB> gives spaces
