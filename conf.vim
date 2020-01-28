@@ -1,3 +1,3 @@
 setlocal expandtab
-setlocal shiftwidth=0
-setlocal tabstop=0
+setlocal shiftwidth=2
+setlocal tabstop=2
