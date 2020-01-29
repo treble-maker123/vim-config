@@ -5,9 +5,10 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 ## Setup
 
 1.  Copy the **.vimrc** into your home directory (i.e. ~/) or symlink with `ln -s /path/to/vim-config/.vimrc ~/.vimrc`,
-2.  Run `vim +PluginInstall +qall` in shell to install all of the plugins with Vundle (see installation notes below for installing vundle), 
-3.  Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
-4.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
+2.  Install Vundle by running `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`,
+3.  Run `vim +PluginInstall +qall` in shell to install all of the plugins with Vundle, 
+4.  Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
+5.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
 
 I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
 
