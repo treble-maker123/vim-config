@@ -37,6 +37,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " git support
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter' " add helpers in the file gutter (along the line numbers)
+autocmd BufWritePost * GitGutter " update gutter when saving file
 
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
