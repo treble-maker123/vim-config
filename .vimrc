@@ -42,6 +42,9 @@ Plugin 'Quramy/vim-js-pretty-template' " template synx
 Plugin 'mhartington/vim-typings' " TypeScript typings
 Plugin 'Quramy/tsuquyomi' " autocompletion
 
+" c# support
+Plugin 'OmniSharp/omnisharp-vim'
+
 " python support
 Plugin 'klen/python-mode' " converts vim into a Python IDE
 
@@ -70,6 +73,10 @@ set shiftwidth=2 " how many spaces to use for an indentation (hitting ENTER)
 set foldenable " enable folding
 set foldlevelstart=10 " levels to be folded to start
 set foldnestmax=10 " max number of level of folds
+
+" splitting with vs
+set splitbelow " create new pane below current pane 'sp'
+set splitright " create new pane to the right of current pane with 'vs'
 
 " ui
 set number " show line number
