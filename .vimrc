@@ -18,6 +18,8 @@ Plugin 'altercation/vim-colors-solarized'
 
 " file system explorer
 Plugin 'preservim/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 " autocomplete for vim
 Plugin 'ycm-core/YouCompleteMe'
 " search stuff in files
@@ -34,7 +36,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " git support
 Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter' " add helpers in the file gutter (along the line numbers)
 
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
@@ -43,10 +45,10 @@ Plugin 'mhartington/vim-typings' " TypeScript typings
 Plugin 'Quramy/tsuquyomi' " autocompletion
 
 " c# support
-Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'OmniSharp/omnisharp-vim' " IDE-like support for c#
 
 " python support
-Plugin 'klen/python-mode' " converts vim into a Python IDE
+Plugin 'klen/python-mode' " IDE support for python
 
 " <<< vundle plugins <<<
 
