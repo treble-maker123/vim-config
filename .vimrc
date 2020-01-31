@@ -60,6 +60,10 @@ syntax enable
 set background=dark
 hi Normal ctermbg=None " Turns background color off
 colorscheme solarized
+" Let the terminal know that it's capable of displaying 256 colors
+" Uncomment if background is white, see https://stackoverflow.com/a/15378816
+" let t_Co=256
+" let g:solarized_termcolors=256
 
 " <TAB>
 set expandtab " <TAB> gives spaces
