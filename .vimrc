@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " color schemes
 Plugin 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=256
 
 " file system explorer
 Plugin 'preservim/nerdtree'
