@@ -14,8 +14,12 @@ Plugin 'VundleVim/Vundle.vim'
 " >>> vundle plugins >>>
 
 " color schemes
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=256
+let g:solarized_termtrans=1 " transparent background
+let g:solarized_contrast="high"
+set t_Co=256
+set t_ut=
 
 " file system explorer
 Plugin 'preservim/nerdtree'
@@ -34,6 +38,7 @@ au BufWrite * :Autoformat " automatically format on save
 " status line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'codedark'
 
 " git support
 Plugin 'tpope/vim-fugitive'
@@ -61,12 +66,12 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set enc=utf-8
 
 " color scheme
 syntax enable
 set background=dark
-hi Normal ctermbg=None " Turns background color off
-colorscheme solarized
+colorscheme codedark
 
 " <TAB>
 set expandtab " <TAB> gives spaces
