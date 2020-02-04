@@ -25,6 +25,9 @@ set t_ut=
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" plugin for .tmux.conf
+Plugin 'tmux-plugins/vim-tmux'
+
 " autocomplete for vim
 Plugin 'ycm-core/YouCompleteMe'
 " search stuff in files
