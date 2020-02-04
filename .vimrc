@@ -24,6 +24,13 @@ set t_ut=
 " file system explorer
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+" open NERDTree with <ctrl + n>
+map <C-n> :NERDTreeToggle<CR>
+" open NERDTree automatically when vim starts up if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close NERDTree if it's the only pane open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " plugin for .tmux.conf
 Plugin 'tmux-plugins/vim-tmux'
@@ -112,27 +119,3 @@ set wrap linebreak nolist " setting soft wrap, so that no newline character is i
 " miscellaneous
 set encoding=utf-8 " not sure if this is necessary
 set mouse=a " alows for highlighting lines, placing the cursor, and scrolling with mouse
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-"
-" See https://github.com/preservim/nerdtree/wiki/F.A.Q. for more info
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" open NERDTree with <ctrl + n>
-map <C-n> :NERDTreeToggle<CR>
-
-" Open NERDTree automatically when vim starts up if no files are specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
-"
-" See https://github.com/ctrlpvim/ctrlp.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" c - the directory of the current file
-" a - the directory of the current file, unless it is a subdirectory of the cwd
-" r - the nearest ancestor of the current file that contains one of these directories or files: .git .hg .svn .bzr _darcs
-let g:ctrlp_working_path_mode='car'
