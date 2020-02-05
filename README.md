@@ -28,11 +28,17 @@ I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Co
 
 ## Cheatsheet
 
+To check what a key is current mapped, use `nmap`.
+
+### Open File
+
+-   In current pane, use `:e FILE_NAME`
+
 ### NERDTree
 
   [NERDTree](https://github.com/preservim/nerdtree) is a tool for browsing files in a tree similar to those of IDEs.
 
--   &lt;ctrl + n> - toggle NERDTree (a file tree browser), can be changed in the **.vimrc** file
+-   `ctrl + n` - toggle NERDTree (a file tree browser), can be changed in the **.vimrc** file
 -   I (shift + i) - to toggle showing hidden files
 
 ### Copy, Cutting, & Pasting
@@ -42,12 +48,14 @@ I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Co
 -   To cut, `d`,
 -   To paste before cursor press `P`. to paste after cursor press `p`.
 
+Alternatively, in visual mode `CTRL-c` copies and `CTRL-x` cuts, and in insert mode `CTRL-v` pastes.
+
 ### Undo & Redo
 
   In normal mode:
 
--   `:u` will undo a previous change
--   &lt;ctrl + r> will redo the previously undone change
+-   `:u` or simply press `u` will undo a previous change
+-   `ctrl + r` will redo the previously undone change
 
 ### Tabs
 

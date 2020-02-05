@@ -74,10 +74,28 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configs
+" Custom Key Bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set enc=utf-8
 
+" The key bindings below are from
+" https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
+" map CTRL-E to the end of line in all modes
+map <C-e> $
+imap <C-e> <esc>$i<right> " restore to insert mode after moving cursor
+" map CTRL-W to the beginning of line in all modes
+map <C-w> 0
+imap <C-w> <esc>0i " restore to insert mode after moving cursor
+
+" map CTRL-c to copy in visual mode
+vmap <C-c> y
+" map CTRL-x to cut in visual mode
+vmap <C-x> x
+" map CTRL-p to paste in insert mode
+imap <C-v> <esc>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color scheme
 syntax enable
 set background=dark
