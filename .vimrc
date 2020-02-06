@@ -76,10 +76,6 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Key Bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <r> <C-r> " Redo just r instead of CTRL-R
-asdf
-asdf
-
 
 " The key bindings below are adapted from
 " https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
