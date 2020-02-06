@@ -76,15 +76,19 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Key Bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <r> <C-r> " Redo just r instead of CTRL-R
+asdf
+asdf
 
-" The key bindings below are from
+
+" The key bindings below are adapted from
 " https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
-" map CTRL-E to the end of line in all modes
-map <C-e> $
-imap <C-e> <esc>$i<right> " restore to insert mode after moving cursor
-" map CTRL-W to the beginning of line in all modes
-map <C-w> 0
-imap <C-w> <esc>0i " restore to insert mode after moving cursor
+" map CTRL-d to the end of line in all modes
+map <C-d> $
+imap <C-d> <esc>$i<right> " restore to insert mode after moving cursor
+" map CTRL-a to the beginning of line in all modes
+map <C-a> 0
+imap <C-a> <esc>0i " restore to insert mode after moving cursor
 
 " map CTRL-c to copy in visual mode
 vmap <C-c> y
