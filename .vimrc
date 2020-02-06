@@ -79,12 +79,10 @@ filetype plugin indent on    " required
 
 " The key bindings below are adapted from
 " https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
-" map CTRL-d to the end of line in all modes
+" map CTRL-d to the end of line in all modes except insert mode
 map <C-d> $
-imap <C-d> <esc>$i<right> " restore to insert mode after moving cursor
-" map CTRL-a to the beginning of line in all modes
+" map CTRL-a to the beginning of line in all modes except insert mode
 map <C-a> 0
-imap <C-a> <esc>0i " restore to insert mode after moving cursor
 
 " map CTRL-c to copy in visual mode
 vmap <C-c> y
