@@ -34,11 +34,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " plugin for .tmux.conf
 Plugin 'tmux-plugins/vim-tmux'
-
 " autocomplete for vim
 Plugin 'ycm-core/YouCompleteMe'
 " search stuff in files
 Plugin 'ctrlpvim/ctrlp.vim'
+" syntax error highlight
+Plugin 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " automatic formatting
 Plugin 'Chiel92/vim-autoformat'

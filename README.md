@@ -50,7 +50,9 @@ To check what a key is current mapped, use `nmap`.
 -   To cut, `d`,
 -   To paste before cursor press `P`. to paste after cursor press `p`.
 
-Alternatively, in visual mode `CTRL-c` copies and `CTRL-x` cuts, and in insert mode `CTRL-v` pastes.
+Alternatively, in visual mode `CTRL-c` copies and `CTRL-x` cuts.
+
+MacVim on MacOS and vim-gtk (should uninstall vim and install vim-gtk) should allow yank and cut to copy to system clipboard.
 
 ### Undo & Redo
 
