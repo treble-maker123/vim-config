@@ -88,8 +88,6 @@ map <C-a> 0
 vmap <C-c> y
 " map CTRL-x to cut in visual mode
 vmap <C-x> x
-" map CTRL-p to paste in insert mode
-imap <C-v> <esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
