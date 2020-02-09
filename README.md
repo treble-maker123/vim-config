@@ -12,6 +12,8 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 
 I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
 
+Additionally, in order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work, follow the installation instructions on their [Github page](https://github.com/ycm-core/YouCompleteMe#installation) for your system. Otherwise, you should comment out the plugin, or the plugin will give errors on Linux systems or freeze the terminal on MacOS.
+
 ### Vundle Installation
 
   See their [Gihub](https://github.com/VundleVim/Vundle.vim#quick-start) page for information.
