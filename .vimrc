@@ -135,3 +135,4 @@ set wrap linebreak nolist " setting soft wrap, so that no newline character is i
 " miscellaneous
 set encoding=utf-8 " not sure if this is necessary
 set mouse=a " alows for highlighting lines, placing the cursor, and scrolling with mouse
+set clipboard=unnamedplus " automatically puts the copied or cut text into system clipboard
