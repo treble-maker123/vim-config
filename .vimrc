@@ -133,4 +133,14 @@ set wrap linebreak nolist " setting soft wrap, so that no newline character is i
 " miscellaneous
 set encoding=utf-8 " not sure if this is necessary
 set mouse=a " alows for highlighting lines, placing the cursor, and scrolling with mouse
-set clipboard=unnamedplus " automatically puts the copied or cut text into system clipboard
+
+" automatically puts the copied or cut text into system clipboard
+" should be 'unnamedplus' for Linux and 'unnamed' for MacOS
+let s:uname = system("echo -n \"$(uname)\"")
+if !v:shell_error
+  if s:uname == "Linux"
+    set clipboard=unnamedplus
+  elseif s:uname == "Darwin" " MacOS
+    set clipboard=unamed
+  endif
+endif
