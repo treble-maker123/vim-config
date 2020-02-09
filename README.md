@@ -12,7 +12,7 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 
 I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
 
-Additionally, in order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work, follow the installation instructions on their [Github page](https://github.com/ycm-core/YouCompleteMe#installation) for your system. On MacOS, the plugin only works with MacVim, which can be installed with Brew - trying to open the plugin directly will freeze the terminal.
+Additionally, in order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work, follow the installation instructions on their [Github page](https://github.com/ycm-core/YouCompleteMe#installation) for your system. On MacOS, the plugin only works with MacVim, which can be installed with Brew - trying to open the plugin directly will freeze the terminal. To install MacVim, run `brew install macvim`, and alias `vim` with `alias vim="mvim -v"`.
 
 ### Vundle Installation
 
