@@ -141,6 +141,6 @@ if !v:shell_error
   if s:uname == "Linux"
     set clipboard=unnamedplus
   elseif s:uname == "Darwin" " MacOS
-    set clipboard=unamed
+    set clipboard=unnamed
   endif
 endif
