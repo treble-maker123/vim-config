@@ -60,6 +60,7 @@ let g:airline_theme = 'codedark'
 
 " git support
 Plugin 'tpope/vim-fugitive'
+set diffopt+=vertical " :Gdiff splits vertically instead of horizontally
 Plugin 'airblade/vim-gitgutter' " add helpers in the file gutter (along the line numbers)
 autocmd BufWritePost * GitGutter " update gutter when saving file
 
