@@ -24,20 +24,26 @@ set t_ut=
 " file system explorer
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" open NERDTree with <ctrl + n>
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR> " open NERDTree with <ctrl + n>
+" tag generator
+Plugin 'ludovicchabant/vim-gutentags'
+let g:gutentags_enabled=1
 " open NERDTree automatically when vim starts up if no files are specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree if it's the only pane open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+" graph undo tree
+Plugin 'simnalamburt/vim-mundo'
+nnoremap <C-m> :MundoToggle<CR>
+let g:mundo_right = 1 " mundo open on the right
 " plugin for .tmux.conf
 Plugin 'tmux-plugins/vim-tmux'
 " autocomplete for vim
 Plugin 'ycm-core/YouCompleteMe'
-" search stuff in files
+" search files
 Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode=0
 " syntax error highlight
 Plugin 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
@@ -47,11 +53,18 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" rainbow color for matching parenthesis
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 " can be toggled with :RainbowToggle
+" visualize indentation
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_enabled = 0
 
 " automatic formatting
 Plugin 'Chiel92/vim-autoformat'
 " NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
 au BufWrite * :Autoformat " automatically format on save
+let g:autoformat_autoindent = 0 " disable fall back to vim's indent file
 
 " status line
 Plugin 'vim-airline/vim-airline'
@@ -73,8 +86,19 @@ Plugin 'Quramy/tsuquyomi' " autocompletion
 " c# support
 Plugin 'OmniSharp/omnisharp-vim' " IDE-like support for c#
 
+" java support
+Plugin 'artur-shaik/vim-javacomplete2'
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " python support
 Plugin 'klen/python-mode' " IDE support for python
+
+" sql support
+Plugin 'lifepillar/pgsql.vim'
+let g:sql_type_default = 'pgsql'
+
+" latex support
+Plugin 'lervag/vimtex'
 
 " <<< vundle plugins <<<
 

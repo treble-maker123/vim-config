@@ -10,9 +10,17 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 4.  Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
 5.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
 
+### Theme
+
 I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
 
+### YouCompleteME
+
 Additionally, in order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work, follow the installation instructions on their [Github page](https://github.com/ycm-core/YouCompleteMe#installation) for your system. On MacOS, the plugin only works with MacVim, which can be installed with Brew - trying to open the plugin directly will freeze the terminal. To install MacVim, run `brew install macvim`, and alias `vim` with `alias vim="mvim -v"`.
+
+### Gutentags
+
+[Gutentags](https://github.com/ludovicchabant/vim-gutentags) is used to generate ctags. In order for the plugin to run, must install `ctag` on your machine (i.e. `sudo apt install exuberant-ctags`).
 
 ### Vundle Installation
 
