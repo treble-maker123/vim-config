@@ -33,7 +33,11 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree if it's the only pane open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" graph undo tree
+" commenter plugin
+Plugin 'preservim/nerdcommenter'
+" TODO: ADD CUSTOM KEY BINDINGS TO MAKE THIS EASIER to toggle
+" noremap <C-/> <leader>c<space>
+" visualize the undo tree
 Plugin 'simnalamburt/vim-mundo'
 nnoremap <C-m> :MundoToggle<CR>
 let g:mundo_right = 1 " mundo open on the right
@@ -58,7 +62,7 @@ Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1 " can be toggled with :RainbowToggle
 " visualize indentation
 Plugin 'Yggdroot/indentLine'
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 
 " automatic formatting
 Plugin 'Chiel92/vim-autoformat'
@@ -85,6 +89,7 @@ Plugin 'Quramy/tsuquyomi' " autocompletion
 
 " c# support
 Plugin 'OmniSharp/omnisharp-vim' " IDE-like support for c#
+let g:OmniSharp_server_stdio = 1 " Use the stdio version of OmniSharp-roslyn, set to 0 to use HTTP version
 
 " java support
 Plugin 'artur-shaik/vim-javacomplete2'
@@ -112,15 +117,22 @@ filetype plugin indent on    " required
 
 " The key bindings below are adapted from
 " https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
-" map CTRL-d to the end of line in all modes except insert mode
-map <C-d> $
-" map CTRL-a to the beginning of line in all modes except insert mode
-map <C-a> 0
+" map CTRL-d to the end of line
+nnoremap <C-d> $
+inoremap <C-d> <Esc>$i " escape insert mode first with <Esc>, then get back into it with i
+" map CTRL-a to the beginning of line
+nnoremap <C-a> 0
+inoremap <C-a> <Esc>0i
 
 " map CTRL-c to copy in visual mode
-vmap <C-c> y
+vnoremap <C-c> y
 " map CTRL-x to cut in visual mode
-vmap <C-x> x
+vnoremap <C-x> x
+" map CTRL-v to paste in insert mode
+inoremap <C-v> <Esc>Pi
+
+" map CTRL-w to write
+noremap <C-w> :w<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
@@ -132,13 +144,14 @@ colorscheme codedark
 
 " <TAB>
 set expandtab " <TAB> gives spaces
-set tabstop=2 " number of visual spaces to display per <TAB> character
-set shiftwidth=2 " how many spaces to use for an indentation (hitting ENTER)
+set softtabstop=4 " number of spaces to remove when hitting backspace
+set tabstop=4 " number of visual spaces to display per <TAB> character
+set shiftwidth=4 " how many spaces to use for an indentation (hitting ENTER)
 
 " folding
-set foldenable " enable folding
-set foldlevelstart=10 " levels to be folded to start
-set foldnestmax=10 " max number of level of folds
+set foldmethod=indent
+set foldnestmax=10 " don't fold anything deeper than 10
+set foldlevel=2
 
 " splitting with vs
 set splitbelow " create new pane below current pane 'sp'
