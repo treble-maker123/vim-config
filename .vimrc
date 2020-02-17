@@ -37,6 +37,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 Plugin 'preservim/nerdcommenter'
 " TODO: ADD CUSTOM KEY BINDINGS TO MAKE THIS EASIER to toggle
 " noremap <C-/> <leader>c<space>
+let g:NERDSpaceDelims=2 " add an extra space after the comment
 " visualize the undo tree
 Plugin 'simnalamburt/vim-mundo'
 nnoremap <C-m> :MundoToggle<CR>
