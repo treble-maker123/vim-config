@@ -64,7 +64,9 @@ let g:rainbow_active = 1 " can be toggled with :RainbowToggle
 " visualize indentation
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_enabled = 1
-
+" automatically close brackets
+Plugin 'jiangmiao/auto-pairs'
+let g:AutoPairs={'{':'}', '(':')', '[':']'} " plugin default includes too many pairs
 " automatic formatting
 Plugin 'Chiel92/vim-autoformat'
 " NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
@@ -133,7 +135,8 @@ vnoremap <C-x> x
 inoremap <C-v> <Esc>Pi
 
 " map CTRL-w to write
-noremap <C-w> :w<CR>
+nnoremap <C-w> :w<CR>
+inoremap <C-w> <Esc>:w<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
