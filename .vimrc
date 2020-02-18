@@ -122,7 +122,7 @@ filetype plugin indent on    " required
 " https://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
 " map CTRL-d to the end of line
 nnoremap <C-d> $
-inoremap <C-d> <Esc>$i " escape insert mode first with <Esc>, then get back into it with i
+inoremap <C-d> <Esc>$i
 " map CTRL-a to the beginning of line
 nnoremap <C-a> 0
 inoremap <C-a> <Esc>0i
@@ -132,11 +132,11 @@ vnoremap <C-c> y
 " map CTRL-x to cut in visual mode
 vnoremap <C-x> x
 " map CTRL-v to paste in insert mode
-inoremap <C-v> <Esc>Pi
+inoremap <C-v> <Esc>pi
 
-" map CTRL-w to write
-nnoremap <C-w> :w<CR>
-inoremap <C-w> <Esc>:w<CR>i
+" map CTRL-z to write
+nnoremap <C-z> :w<CR>
+inoremap <C-z> <Esc>:w<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
