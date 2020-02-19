@@ -194,3 +194,12 @@ if !v:shell_error
     set clipboard=unnamed
   endif
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" while editing sql files, hitting left or right arrow with suggestion won't
+" give the error 'SQLComplete: The ebext plugin must be loaded for dynamic
+" SQL completion', which is annoying.
+let g:omni_sql_no_default_maps=1
