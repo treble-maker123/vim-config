@@ -136,7 +136,7 @@ inoremap <C-v> <Esc>pi
 
 " map CTRL-z to write
 nnoremap <C-z> :w<CR>
-inoremap <C-z> <Esc>:w<CR>i
+inoremap <C-z> <Esc>:w<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
