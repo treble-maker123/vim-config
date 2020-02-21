@@ -41,6 +41,8 @@ let g:NERDSpaceDelims=2 " add an extra space after the comment
 " visualize the undo tree
 Plugin 'simnalamburt/vim-mundo'
 nnoremap <C-m> :MundoToggle<CR>
+" <ENTER> brings up Mundo by default, keeps hitting it by accident
+noremap <ENTER> <nop>
 let g:mundo_right = 1 " mundo open on the right
 " plugin for .tmux.conf
 Plugin 'tmux-plugins/vim-tmux'
@@ -183,6 +185,7 @@ set wrap linebreak nolist " setting soft wrap, so that no newline character is i
 " miscellaneous
 set encoding=utf-8 " not sure if this is necessary
 set mouse=a " alows for highlighting lines, placing the cursor, and scrolling with mouse
+set timeoutlen=1000 ttimeoutlen=10 " make ESC respond faster
 
 " automatically puts the copied or cut text into system clipboard
 " should be 'unnamedplus' for Linux and 'unnamed' for MacOS
