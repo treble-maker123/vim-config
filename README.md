@@ -62,6 +62,11 @@ Alternatively, in visual mode `CTRL-c` copies and `CTRL-x` cuts.
 
 MacVim on MacOS and vim-gtk (should uninstall vim and install vim-gtk) should allow yank and cut to copy to system clipboard.
 
+### Saving
+
+-   `:w` writes the current changes to disk,
+-   `<CTRL> z` is a shortcut that writes changes to disk and changes back to normal mode.
+
 ### Undo & Redo
 
   In normal mode:
@@ -85,6 +90,10 @@ Resizing:
 -   `vertical resize +5` to increase the width of the pane
 
 Alternatively, `ctrl-w +` and `ctrl-w -` to resize the height of the current window, `ctrl+w >` and `ctrl+w <` to resize the width of the current window. To resize all windows, `ctrl-w =`.
+
+### Commenting/Uncommenting
+
+-   `\ c <SPACE>` toggles commenting/uncomment of lines.
 
 ### Searching
 

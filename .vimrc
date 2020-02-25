@@ -206,3 +206,7 @@ endif
 " give the error 'SQLComplete: The ebext plugin must be loaded for dynamic
 " SQL completion', which is annoying.
 let g:omni_sql_no_default_maps=1
+
+" disable the generation of *.swp and *~ files permanently. Save often, folks.
+set nobackup
+set noswapfile
