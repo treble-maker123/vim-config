@@ -62,6 +62,11 @@ Alternatively, in visual mode `CTRL-c` copies and `CTRL-x` cuts.
 
 MacVim on MacOS and vim-gtk (should uninstall vim and install vim-gtk) should allow yank and cut to copy to system clipboard.
 
+### Folding
+
+-   `zc` closes a fold
+-   `zo` opens a fold
+
 ### Saving
 
 -   `:w` writes the current changes to disk,

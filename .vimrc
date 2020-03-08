@@ -157,7 +157,7 @@ set shiftwidth=4 " how many spaces to use for an indentation (hitting ENTER)
 " folding
 set foldmethod=indent
 set foldnestmax=10 " don't fold anything deeper than 10
-set foldlevel=2
+set foldlevel=4
 
 " splitting with vs
 set splitbelow " create new pane below current pane 'sp'
