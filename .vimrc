@@ -58,7 +58,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_loc_list_height=5
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 " rainbow color for matching parenthesis
 Plugin 'luochen1990/rainbow'
@@ -136,9 +137,9 @@ vnoremap <C-x> x
 " map CTRL-v to paste in insert mode
 inoremap <C-v> <Esc>pi
 
-" map CTRL-z to write
-nnoremap <C-z> :w<CR>
-inoremap <C-z> <Esc>:w<CR>
+" map CTRL-backslash to write
+nnoremap <C-Bslash> :w<CR>
+inoremap <C-Bslash> <Esc>:w<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Config
