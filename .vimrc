@@ -59,7 +59,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height=5
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " rainbow color for matching parenthesis
 Plugin 'luochen1990/rainbow'
@@ -87,6 +87,13 @@ set diffopt+=vertical " :Gdiff splits vertically instead of horizontally
 Plugin 'airblade/vim-gitgutter' " add helpers in the file gutter (along the line numbers)
 autocmd BufWritePost * GitGutter " update gutter when saving file
 
+" lint support
+Plugin 'w0rp/ale'
+let g:ale_sign_column_always = 1 " keep the sign gutter always open
+let g:ale_fixers = {
+            \ '*': ['remove_trailing_lines', 'trim_whitespace']
+            \ }
+
 " typescript support
 Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
 Plugin 'Quramy/vim-js-pretty-template' " template synx
@@ -96,6 +103,9 @@ Plugin 'Quramy/tsuquyomi' " autocompletion
 " c# support
 Plugin 'OmniSharp/omnisharp-vim' " IDE-like support for c#
 let g:OmniSharp_server_stdio = 1 " Use the stdio version of OmniSharp-roslyn, set to 0 to use HTTP version
+let g:OmniSharp_hightlight_types = 3 " update semantic highlighting after all text changes
+set previewheight=5
+set completeopt=longest,menuone,preview
 
 " java support
 Plugin 'artur-shaik/vim-javacomplete2'
