@@ -75,6 +75,11 @@ Plugin 'Chiel92/vim-autoformat'
 " NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
 au BufWrite * :Autoformat " automatically format on save
 let g:autoformat_autoindent = 0 " disable fall back to vim's indent file
+" toggle list
+Plugin 'milkypostman/vim-togglelist'
+" default mapping
+" nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+" nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
 " status line
 Plugin 'vim-airline/vim-airline'

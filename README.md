@@ -40,6 +40,10 @@ In order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work,
 
 To check what a key is current mapped, use `nmap`.
 
+### Search Keyword
+
+-   `grep -rnw './parent_path' -e 'keywords'`
+
 ### Open File
 
 -   In current pane, use `:e FILE_NAME`
