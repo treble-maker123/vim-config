@@ -75,6 +75,9 @@ Plug 'lervag/vimtex'
 " terraform support
 Plug 'hashivim/vim-terraform'
 
+" git blame popup
+Plug 'rhysd/git-messenger.vim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -123,6 +126,9 @@ let g:AutoPairs={'{':'}', '(':')', '[':']'}
 
 " --- airline ---
 let g:airline_theme = 'codedark'
+
+" --- git-messenger ---
+nmap <leader>m <Plug>(git-messenger)
 
 " --- vim-gitgutter ---
 set diffopt+=vertical

@@ -15,6 +15,7 @@ To check what a key is currently mapped to, use `nmap`.
 [NERDTree](https://github.com/preservim/nerdtree) is a tool for browsing files in a tree similar to those of IDEs.
 
 -   `ctrl + n` - toggle NERDTree
+-   `\m` - show git blame popup for current line
 -   `\n` - reveal and highlight the current file in NERDTree (press `\` then `n` in normal mode)
 -   `I` (shift + i) - toggle showing hidden files
 -   `o` / `Enter` - open/expand a file or directory
