@@ -90,6 +90,7 @@ set t_Co=256
 set t_ut=
 
 " --- NERDTree ---
+let g:NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
 " open NERDTree automatically when vim starts up if no files are specified
 autocmd StdinReadPre * let s:std_in=1
