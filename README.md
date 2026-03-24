@@ -36,6 +36,32 @@ I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Co
 
 [fzf.vim](https://github.com/junegunn/fzf.vim) is used for fuzzy file and content search.
 
+## Python Formatting
+
+ALE formats Python files on save using `ruff`. The `.vimrc` points to a global ruff at `/Users/zguan/Projects/.venv/bin/ruff`, but for per-project formatting it's better to pin ruff in each project and point ALE to the local venv instead.
+
+### Pinning ruff per project
+
+In your `pyproject.toml`:
+```toml
+[dependency-groups]
+dev = [
+    "ruff==0.x.y",
+]
+```
+
+Or with uv:
+```sh
+uv add --dev ruff==0.x.y
+```
+
+Then update `.vimrc` to use the project-local ruff:
+```vim
+let g:ale_python_ruff_executable = '.venv/bin/ruff'
+```
+
+Run `make pin-ruff` from any Python project to be guided through this.
+
 ## Cheatsheet
 
 See [CHEATSHEET.md](CHEATSHEET.md) for a full list of commands and keybindings.
