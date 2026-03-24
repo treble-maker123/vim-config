@@ -4,37 +4,69 @@ My own configuration and cheatsheet for vim, feel free to copy and make suggesti
 
 ## Setup
 
+### macOS (automated)
+
+Clone the repo and run:
+```sh
+make setup-macos
+```
+
+### Manual setup
+
 1.  Copy the **.vimrc** into your home directory (i.e. ~/) or symlink with `ln -s /path/to/vim-config/.vimrc ~/.vimrc`,
-2.  Install Vundle by running `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`,
-3.  Run `vim +PluginInstall +qall` in shell, or ":PluginInstall" in vim, to install all of the plugins with Vundle, 
-4.  Symlink the language-dependent configurations (e.g. **rb.vim** or **py.vim**) to **~/.vim/ftplugin/LANGUAGE.vim**,
-5.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
+2.  Install [vim-plug](https://github.com/junegunn/vim-plug):
+    ```sh
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ```
+3.  Run `vim +PlugInstall +qall` in shell, or `:PlugInstall` in vim, to install all plugins,
+4.  Install [coc.nvim](https://github.com/neoclide/coc.nvim) language extensions — open vim and run:
+    ```
+    :CocInstall coc-tsserver coc-pyright coc-json
+    ```
+5.  Symlink the language-dependent configurations to `~/.vim/after/ftplugin/`:
+    ```sh
+    mkdir -p ~/.vim/after/ftplugin
+    for f in py cs html rb typescript typescriptreact sh make terraform; do
+      ln -s /path/to/vim-config/$f.vim ~/.vim/after/ftplugin/$f.vim
+    done
+    ```
+6.  (Optional) Reload live vim sessions with the command `:source ~/.vimrc`.
+
+### Terraform
+
+[vim-terraform](https://github.com/hashivim/vim-terraform) provides syntax highlighting and indentation for Terraform files. Formatting on save is handled by ALE using `terraform fmt`, which requires the `terraform` CLI to be installed and in your `$PATH`.
+
+To verify:
+```sh
+which terraform
+```
 
 ### Theme
 
-I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2) 
+I use this in conjunction with [iTerm](https://iterm2.com) and [Visual Studio Code's theme](https://github.com/tallpants/vscode-theme-iterm2)
 
-### YouCompleteME
+### coc.nvim
 
-In order for [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) to work, follow the installation instructions on their [Github page](https://github.com/ycm-core/YouCompleteMe#installation) for your system. On MacOS, the plugin only works with MacVim, which can be installed with Brew - trying to open the plugin directly will freeze the terminal. To install MacVim, run `brew install macvim`, and alias `vim` with `alias vim="mvim -v"`.
+[coc.nvim](https://github.com/neoclide/coc.nvim) provides LSP-based autocompletion and navigation. Key bindings:
+
+-   `TAB` / `shift+TAB` - cycle through completion suggestions
+-   `gd` - go to definition
+-   `gy` - go to type definition
+-   `gi` - go to implementation
+-   `gr` - show references
+-   `K` - show documentation
 
 ### Gutentags
 
 [Gutentags](https://github.com/ludovicchabant/vim-gutentags) is used to generate ctags. In order for the plugin to run, must install `ctag` on your machine (i.e. `sudo apt install exuberant-ctags`).
 
-### Vundle Installation
+### fzf
 
-  See their [Gihub](https://github.com/VundleVim/Vundle.vim#quick-start) page for information.
+[fzf.vim](https://github.com/junegunn/fzf.vim) is used for fuzzy file and content search:
 
-### YouCompleteMe
-
-  [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) is a plugin for vim that has support for autocomplete. To enable it, run `cd ~/.vim/bundle/YouCompleteMe && ./install.py --all` to complete setup. See their Github page for more information on setup.
-
-  When the autcomplete shows up, use **TAB** key to cycle through suggestions or **shift + TAB** to cycle backwards.
-
-### CtrlP
-
-  [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is a "Full path fuzzy file, buffer, mru, tag, ... finder for Vim".
+-   `ctrl+p` - fuzzy file search
+-   `\f` - search file contents with ripgrep
 
 ## Cheatsheet
 

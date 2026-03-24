@@ -1,136 +1,197 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
+" vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" >>> vundle plugins >>>
+call plug#begin('~/.vim/plugged')
 
 " color schemes
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'tomasiser/vim-code-dark'
+Plug 'altercation/vim-colors-solarized'
+
+" file system explorer
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" tag generator
+Plug 'ludovicchabant/vim-gutentags'
+
+" commenter plugin
+Plug 'preservim/nerdcommenter'
+
+" visualize the undo tree
+Plug 'simnalamburt/vim-mundo'
+
+" plugin for .tmux.conf
+Plug 'tmux-plugins/vim-tmux'
+
+" intellisense engine (replaces YouCompleteMe)
+" After install, run: :CocInstall coc-tsserver coc-pyright coc-json
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" fuzzy file/content search (replaces CtrlP)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" rainbow color for matching parenthesis
+Plug 'luochen1990/rainbow'
+
+" visualize indentation
+Plug 'Yggdroot/indentLine'
+
+" automatically close brackets
+Plug 'jiangmiao/auto-pairs'
+
+" toggle quickfix/location list
+Plug 'milkypostman/vim-togglelist'
+
+" status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" git support
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" async lint and fix (replaces syntastic)
+Plug 'w0rp/ale'
+
+" typescript syntax highlighting (replaces leafgarland/typescript-vim + tsuquyomi)
+Plug 'HerringtonDarkholme/yats.vim'
+
+" c# support
+Plug 'OmniSharp/omnisharp-vim'
+
+" java support
+Plug 'artur-shaik/vim-javacomplete2'
+
+" python support
+Plug 'klen/python-mode'
+
+" sql support
+Plug 'lifepillar/pgsql.vim'
+
+" latex support
+Plug 'lervag/vimtex'
+
+" terraform support
+Plug 'hashivim/vim-terraform'
+
+call plug#end()
+
+filetype plugin indent on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" --- color schemes ---
 let g:solarized_termtrans=1 " transparent background
 let g:solarized_contrast="high"
 set t_Co=256
 set t_ut=
 
-" file system explorer
-Plugin 'preservim/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-map <C-n> :NERDTreeToggle<CR> " open NERDTree with <ctrl + n>
-" tag generator
-Plugin 'ludovicchabant/vim-gutentags'
-let g:gutentags_enabled=1
+" --- NERDTree ---
+map <C-n> :NERDTreeToggle<CR>
 " open NERDTree automatically when vim starts up if no files are specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close NERDTree if it's the only pane open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" commenter plugin
-Plugin 'preservim/nerdcommenter'
-" TODO: ADD CUSTOM KEY BINDINGS TO MAKE THIS EASIER to toggle
-" noremap <C-/> <leader>c<space>
-let g:NERDSpaceDelims=2 " add an extra space after the comment
-" visualize the undo tree
-Plugin 'simnalamburt/vim-mundo'
-nnoremap <C-m> :MundoToggle<CR>
-" <ENTER> brings up Mundo by default, keeps hitting it by accident
-noremap <ENTER> <nop>
-let g:mundo_right = 1 " mundo open on the right
-" plugin for .tmux.conf
-Plugin 'tmux-plugins/vim-tmux'
-" autocomplete for vim
-Plugin 'ycm-core/YouCompleteMe'
-" search files
-Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode=0
-" syntax error highlight
-Plugin 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height=5
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" rainbow color for matching parenthesis
-Plugin 'luochen1990/rainbow'
-let g:rainbow_active = 1 " can be toggled with :RainbowToggle
-" visualize indentation
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_enabled = 1
-" automatically close brackets
-Plugin 'jiangmiao/auto-pairs'
-let g:AutoPairs={'{':'}', '(':')', '[':']'} " plugin default includes too many pairs
-" automatic formatting
-Plugin 'Chiel92/vim-autoformat'
-" NOTE: format programs need to be manually installed, see https://github.com/Chiel92/vim-autoformat#default-formatprograms
-au BufWrite * :Autoformat " automatically format on save
-let g:autoformat_autoindent = 0 " disable fall back to vim's indent file
-" toggle list
-Plugin 'milkypostman/vim-togglelist'
-" default mapping
-" nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-" nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+" automatically refresh NERDTree when entering a buffer
+autocmd BufEnter * NERDTreeRefreshRoot
 
-" status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" --- gutentags ---
+let g:gutentags_enabled=1
+let g:gutentags_ctags_executable='/opt/homebrew/bin/ctags'
+
+" --- nerdcommenter ---
+let g:NERDSpaceDelims = 1
+
+" --- Mundo ---
+nnoremap <C-m> :MundoToggle<CR>
+let g:mundo_right = 1
+" Only suppress Enter in normal editing buffers to avoid accidentally opening Mundo
+autocmd BufEnter * if &buftype == '' | nnoremap <buffer> <ENTER> <nop> | endif
+
+" --- auto-pairs ---
+let g:AutoPairs={'{':'}', '(':')', '[':']'}
+
+" --- airline ---
 let g:airline_theme = 'codedark'
 
-" git support
-Plugin 'tpope/vim-fugitive'
-set diffopt+=vertical " :Gdiff splits vertically instead of horizontally
-Plugin 'airblade/vim-gitgutter' " add helpers in the file gutter (along the line numbers)
-autocmd BufWritePost * GitGutter " update gutter when saving file
+" --- vim-gitgutter ---
+set diffopt+=vertical
+autocmd BufWritePost * GitGutter
 
-" lint support
-Plugin 'w0rp/ale'
-let g:ale_sign_column_always = 1 " keep the sign gutter always open
+" --- ALE ---
+let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-            \ '*': ['remove_trailing_lines', 'trim_whitespace']
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'python': ['ruff', 'ruff_format'],
+            \ 'typescript': ['prettier'],
+            \ 'typescriptreact': ['prettier'],
+            \ 'javascript': ['prettier'],
+            \ 'javascriptreact': ['prettier'],
+            \ 'terraform': ['terraform'],
             \ }
+let g:ale_linters = {
+            \ 'python': ['ruff'],
+            \ 'typescript': ['tsserver', 'eslint'],
+            \ 'typescriptreact': ['tsserver', 'eslint'],
+            \ 'cs': ['OmniSharp'],
+            \ }
+let g:ale_python_ruff_executable = '/Users/zguan/Projects/.venv/bin/ruff'
 
-" typescript support
-Plugin 'leafgarland/typescript-vim' " syntax highlighting in .ts and .d.ts files
-Plugin 'Quramy/vim-js-pretty-template' " template synx
-Plugin 'mhartington/vim-typings' " TypeScript typings
-Plugin 'Quramy/tsuquyomi' " autocompletion
+" --- fzf ---
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>f :Rg<CR>
 
-" c# support
-Plugin 'OmniSharp/omnisharp-vim' " IDE-like support for c#
-let g:OmniSharp_server_stdio = 1 " Use the stdio version of OmniSharp-roslyn, set to 0 to use HTTP version
-let g:OmniSharp_hightlight_types = 3 " update semantic highlighting after all text changes
+" --- coc.nvim ---
+" Use Tab to navigate completion menu
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Show documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" --- rainbow ---
+let g:rainbow_active = 1
+
+" --- indentLine ---
+let g:indentLine_enabled = 1
+
+" --- OmniSharp ---
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_hightlight_types = 3
 set previewheight=5
 set completeopt=longest,menuone,preview
 
-" java support
-Plugin 'artur-shaik/vim-javacomplete2'
+" --- java ---
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" python support
-Plugin 'klen/python-mode' " IDE support for python
-
-" sql support
-Plugin 'lifepillar/pgsql.vim'
+" --- pgsql ---
 let g:sql_type_default = 'pgsql'
-
-" latex support
-Plugin 'lervag/vimtex'
-
-" <<< vundle plugins <<<
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Key Bindings
@@ -165,51 +226,50 @@ set background=dark
 colorscheme codedark
 
 " <TAB>
-set expandtab " <TAB> gives spaces
-set softtabstop=4 " number of spaces to remove when hitting backspace
-set tabstop=4 " number of visual spaces to display per <TAB> character
-set shiftwidth=4 " how many spaces to use for an indentation (hitting ENTER)
+set expandtab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 
 " folding
 set foldmethod=indent
-set foldnestmax=10 " don't fold anything deeper than 10
+set foldnestmax=10
 set foldlevel=4
 
-" splitting with vs
-set splitbelow " create new pane below current pane 'sp'
-set splitright " create new pane to the right of current pane with 'vs'
+" splitting
+set splitbelow
+set splitright
 
 " ui
-set number " show line number
-set showcmd " show last used command in bottom bar
-set wildmenu " autocomplete menu
-set lazyredraw " redraw screen only when needed
-set showmatch " highlight matches [] () and {}
-set ruler " show line and column number of the cursor
+set number
+set showcmd
+set wildmenu
+set lazyredraw
+set showmatch
+set ruler
 
 " search
-set incsearch " search as characters are entered
-set hlsearch " highlight matches
+set incsearch
+set hlsearch
 
 " tabs
-set showtabline=2 " always show tabs at the top
+set showtabline=2
 
 " line
-set tw=0 " text width, how many characers before wrapping. 0 means no wrap
-set wrap linebreak nolist " setting soft wrap, so that no newline character is inserted at the end
+set tw=0
+set wrap linebreak nolist
 
 " miscellaneous
-set encoding=utf-8 " not sure if this is necessary
-set mouse=a " alows for highlighting lines, placing the cursor, and scrolling with mouse
-set timeoutlen=1000 ttimeoutlen=10 " make ESC respond faster
+set encoding=utf-8
+set mouse=a
+set timeoutlen=1000 ttimeoutlen=10
 
 " automatically puts the copied or cut text into system clipboard
-" should be 'unnamedplus' for Linux and 'unnamed' for MacOS
 let s:uname = system("echo -n \"$(uname)\"")
 if !v:shell_error
   if s:uname == "Linux"
     set clipboard=unnamedplus
-  elseif s:uname == "Darwin" " MacOS
+  elseif s:uname == "Darwin"
     set clipboard=unnamed
   endif
 endif
@@ -218,11 +278,9 @@ endif
 " Miscellaneous
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" while editing sql files, hitting left or right arrow with suggestion won't
-" give the error 'SQLComplete: The ebext plugin must be loaded for dynamic
-" SQL completion', which is annoying.
+" suppress annoying SQL completion error
 let g:omni_sql_no_default_maps=1
 
-" disable the generation of *.swp and *~ files permanently. Save often, folks.
+" disable swp and ~ files
 set nobackup
 set noswapfile
