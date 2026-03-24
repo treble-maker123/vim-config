@@ -60,7 +60,26 @@ Then update `.vimrc` to use the project-local ruff:
 let g:ale_python_ruff_executable = '.venv/bin/ruff'
 ```
 
-Run `make pin-ruff` from any Python project to be guided through this.
+Run `make setup-python` from any Python project to be guided through this.
+
+### Autocomplete
+
+`coc-pyright` provides Python autocomplete but needs to know which virtualenv to use. Create a `pyrightconfig.json` in the project root:
+
+```json
+{
+  "venvPath": ".",
+  "venv": ".venv"
+}
+```
+
+Or set it globally via `:CocConfig` in Vim:
+
+```json
+{
+  "python.pythonPath": ".venv/bin/python"
+}
+```
 
 ## Cheatsheet
 

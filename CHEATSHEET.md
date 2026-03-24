@@ -15,8 +15,11 @@ To check what a key is currently mapped to, use `nmap`.
 [NERDTree](https://github.com/preservim/nerdtree) is a tool for browsing files in a tree similar to those of IDEs.
 
 -   `ctrl + n` - toggle NERDTree
+-   `\n` - reveal and highlight the current file in NERDTree (press `\` then `n` in normal mode)
 -   `I` (shift + i) - toggle showing hidden files
 -   `o` / `Enter` - open/expand a file or directory
+-   `s` - open file in vertical split
+-   `i` - open file in horizontal split
 -   `C` - change tree root to selected directory
 -   `r` - refresh current directory
 -   `R` - refresh tree root
@@ -77,8 +80,10 @@ Alternatively, `ctrl-w +` and `ctrl-w -` to resize the height of the current win
 
 ## coc.nvim
 
+-   `:CocRestart` - restart the language server (e.g. after installing a new package)
+
 -   `TAB` / `shift+TAB` - cycle through completion suggestions
--   `gd` - go to definition
+-   `gd` - go to definition / follow symbol
 -   `gy` - go to type definition
 -   `gi` - go to implementation
 -   `gr` - show references

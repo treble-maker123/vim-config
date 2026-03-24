@@ -89,9 +89,14 @@ let g:solarized_contrast="high"
 set t_Co=256
 set t_ut=
 
+" --- nerdtree-git-plugin ---
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUseNerdFonts = 0
+
 " --- NERDTree ---
 let g:NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 " open NERDTree automatically when vim starts up if no files are specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -167,6 +172,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Show documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Show signature help automatically when jumping to a placeholder
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -235,7 +242,9 @@ set shiftwidth=4
 " folding
 set foldmethod=indent
 set foldnestmax=10
-set foldlevel=4
+" fold everything by default only if file is longer than 300 lines
+set foldlevel=99
+autocmd BufReadPost * if line('$') > 300 | set foldlevel=0 | endif
 
 " splitting
 set splitbelow
