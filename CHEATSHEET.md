@@ -22,6 +22,7 @@ To check what a key is currently mapped to, use `nmap`.
 -   `s` - open file in vertical split
 -   `i` - open file in horizontal split
 -   `C` - change tree root to selected directory
+-   `m` - open file operations menu (delete, rename, move, etc.)
 -   `r` - refresh current directory
 -   `R` - refresh tree root
 
@@ -85,6 +86,7 @@ Alternatively, `ctrl-w +` and `ctrl-w -` to resize the height of the current win
 
 -   `TAB` / `shift+TAB` - cycle through completion suggestions
 -   `gd` - go to definition / follow symbol
+-   `ctrl-o` - jump back to previous location (after `gd`)
 -   `gy` - go to type definition
 -   `gi` - go to implementation
 -   `gr` - show references
