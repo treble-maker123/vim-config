@@ -49,6 +49,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " git support
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 " async lint and fix (replaces syntastic)
