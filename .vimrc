@@ -55,8 +55,9 @@ Plug 'airblade/vim-gitgutter'
 " async lint and fix (replaces syntastic)
 Plug 'w0rp/ale'
 
-" typescript syntax highlighting (replaces leafgarland/typescript-vim + tsuquyomi)
-Plug 'HerringtonDarkholme/yats.vim'
+" typescript syntax highlighting
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " c# support
 Plug 'OmniSharp/omnisharp-vim'
